@@ -1,0 +1,30 @@
+---
+const screenshots = [
+  { title: "Today", description: "Timeline, tasks, habits, events, all visible at a glance.", image: "/screenshots/today@2x.svg" },
+  { title: "Calendar", description: "Month view with habit events and color-coded categories.", image: "/screenshots/calendar@2x.svg" },
+  { title: "AI assistant", description: "Streaming responses with visible tool calls and confirmation.", image: "/screenshots/chat@2x.svg" },
+  { title: "Insights", description: "Mood trends, correlations, heatmaps, weekly reflection.", image: "/screenshots/insights@2x.svg" },
+  { title: "Notes", description: "Two-pane layout with searchable sidebar and full-text editor.", image: "/screenshots/notes@2x.svg" },
+  { title: "Settings", description: "LLM provider, Telegram pairing, notifications, data export.", image: "/screenshots/settings@2x.svg" }
+];
+---
+
+<section class="page-container section-spacer">
+
+  <p class="eyebrow fade-in">Interface</p>
+  <h2 class="fade-in-up delay-1" style="max-width: 500px; margin-bottom: clamp(4rem, 8vw, 6rem);">
+    Designed for clarity.
+  </h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 3rem);">
+    {screenshots.map((s, i) => (
+      <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`}>
+        <div style="background: var(--color-surface-dim); border-radius: 8px; aspect-ratio: 4/3; margin-bottom: 1rem; overflow: hidden;">
+          <img src={s.image} alt={s.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
+        </div>
+        <h4 style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem;">{s.title}</h4>
+        <p class="body-small">{s.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

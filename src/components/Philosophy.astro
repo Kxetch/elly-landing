@@ -1,0 +1,59 @@
+---
+const principles = [
+  {
+    number: "01",
+    title: "Forgiving streaks",
+    description: "A missed day never resets progress to zero. Streaks degrade gently, one miss barely dents your momentum.",
+    detail: "Habit science shows consistency matters more than perfection. elly is built on that idea."
+  },
+  {
+    number: "02",
+    title: "Tiny first steps",
+    description: "Vague tasks become concrete 2-5 minute actions. Not \"Run 5k\", but \"Put on running shoes.\"",
+    detail: "AI breaks down what you're avoiding into the smallest version that still counts."
+  },
+  {
+    number: "03",
+    title: "Time you can see",
+    description: "\"This afternoon\" becomes \"3:00-3:30 PM Walk.\" Visual timelines replace vague reminders.",
+    detail: "Time blindness is real. elly makes time visible through color-coded blocks and scheduled events."
+  },
+  {
+    number: "04",
+    title: "No judgment",
+    description: "Options offered, never shoulds. No guilt-toned copy. No streak-breaking shame.",
+    detail: "The app suggests, you choose. Your data, your pace."
+  },
+  {
+    number: "05",
+    title: "Insights, not scores",
+    description: "Correlations, mood trends, habit heatmaps, described like a friend noticing things, not a performance review.",
+    detail: "LLM narrates patterns from your data in neutral, helpful language."
+  },
+  {
+    number: "06",
+    title: "Your data. Full stop.",
+    description: "SQLite on your disk. Encrypted fields. Only network calls: your LLM API and optional Telegram bot.",
+    detail: "No telemetry. No analytics. No cloud sync. You can verify this by reading the source."
+  }
+];
+---
+
+<section class="page-container section-spacer">
+
+  <p class="eyebrow fade-in">Philosophy</p>
+  <h2 class="fade-in-up delay-1" style="max-width: 600px; margin-bottom: clamp(3rem, 6vw, 5rem);">
+    Built for ADHD brains, not against them.
+  </h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(3rem, 6vw, 5rem);">
+    {principles.map((p, i) => (
+      <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`}>
+        <span class="eyebrow" style="color: var(--color-ink-tertiary); margin-bottom: 0.75rem; display: block;">{p.number}</span>
+        <h3 style="margin-bottom: 0.75rem;">{p.title}</h3>
+        <p style="margin-bottom: 0.5rem;">{p.description}</p>
+        <p class="body-small">{p.detail}</p>
+      </div>
+    ))}
+  </div>
+</section>

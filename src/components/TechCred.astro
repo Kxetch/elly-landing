@@ -1,0 +1,48 @@
+---
+const highlights = [
+  "128 automated tests (92 backend + 36 frontend)",
+  "Field-level Fernet encryption at rest",
+  "OS keyring auth with file fallback",
+  "Rate limiting via slowapi",
+  "CSP, X-Frame-Options: DENY, nosniff headers",
+  "Multi-arch Docker (amd64 + arm64)",
+  "Loopback-only binding (127.0.0.1)",
+  "Full threat model in SECURITY.md"
+];
+
+const principles = [
+  { term: "One domain layer", definition: "MCP, REST, Telegram bot all call the same functions." },
+  { term: "SQLite on disk", definition: "Never in repo, never iCloud. Your machine, your database." },
+  { term: "PWA installable", definition: "Safari Add to Dock, Android Install App. Offline-capable." },
+  { term: "AGPL-3.0", definition: "Free to self-host and modify. Public service must offer source." }
+];
+---
+
+<section class="page-container section-spacer">
+
+  <p class="eyebrow fade-in">Engineering</p>
+  <h2 class="fade-in-up delay-1" style="max-width: 500px; margin-bottom: clamp(4rem, 8vw, 6rem);">
+    Verified in CI, not marketing.
+  </h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(4rem, 8vw, 6rem);">
+    <div class="fade-in-up delay-2">
+      <h4 style="margin-bottom: 1.5rem; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-ink-tertiary);">Technical</h4>
+      {highlights.map((h, i) => (
+        <div style={`padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);`}>
+          {h}
+        </div>
+      ))}
+    </div>
+
+    <div class="fade-in-up delay-3">
+      <h4 style="margin-bottom: 1.5rem; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-ink-tertiary);">Architecture</h4>
+      {principles.map(p => (
+        <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light);">
+          <span style="font-size: 0.9375rem; font-weight: 500;">{p.term}</span>
+          <span style="font-size: 0.9375rem; color: var(--color-ink-secondary);">. {p.definition}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

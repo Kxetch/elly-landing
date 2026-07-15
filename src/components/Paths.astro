@@ -1,0 +1,56 @@
+---
+const paths = [
+  {
+    name: "Patreon",
+    price: "$5-15/mo",
+    detail: "Polished installers, auto-updates, priority support. Best for most people.",
+    features: ["One-click Docker installer", "Pre-built PWA", "Auto-update notifications", "Priority support", "Early beta access"],
+    href: "https://patreon.com/kxnotes",
+    label: "Get elly"
+  },
+  {
+    name: "Self-host",
+    price: "Free",
+    detail: "Same core, you build the PWA. For tinkerers and privacy maxis.",
+    features: ["docker compose up", "Full source access", "Modify freely", "Runs on Raspberry Pi", "No account needed"],
+    href: "https://github.com/Kxetch/kx-notes",
+    label: "View on GitHub"
+  },
+  {
+    name: "Contribute",
+    price: "Open source",
+    detail: "Local dev with hot reload. Pull requests welcome.",
+    features: ["TypeScript + Python", "128 tests passing", "MCP server included", "Design principles in AGENTS.md", "Code of Conduct enforced"],
+    href: "https://github.com/Kxetch/kx-notes/blob/main/CONTRIBUTING.md",
+    label: "Read CONTRIBUTING.md"
+  }
+];
+---
+
+<section class="page-container section-spacer">
+
+  <p class="eyebrow fade-in">Paths</p>
+  <h2 class="fade-in-up delay-1" style="max-width: 500px; margin-bottom: clamp(4rem, 8vw, 6rem);">
+    Same core. Different friction.
+  </h2>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 3rem);">
+    {paths.map((p, i) => (
+      <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`}>
+        <p class="eyebrow" style="margin-bottom: 0.5rem;">{p.name}</p>
+        <p style="font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.25rem;">{p.price}</p>
+        <p style="margin-bottom: 1.5rem;">{p.detail}</p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+          {p.features.map(f => (
+            <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">
+              {f}
+            </li>
+          ))}
+        </ul>
+        <a href={p.href} target="_blank" rel="noopener noreferrer" class="btn-minimal" style="width: 100%; justify-content: center;">
+          {p.label}
+        </a>
+      </div>
+    ))}
+  </div>
+</section>

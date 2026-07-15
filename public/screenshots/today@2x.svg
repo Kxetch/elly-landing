@@ -1,0 +1,12 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f5f0e6"/>
+  <rect x="50" y="50" width="700" height="500" rx="16" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+  <text x="400" y="120" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" fill="#2f5c54" text-anchor="middle" font-weight="600">Today View</text>
+  <text x="400" y="160" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#6b6255" text-anchor="middle">Placeholder — replace with real 2× screenshot</text>
+  <rect x="80" y="200" width="640" height="80" rx="12" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <text x="400" y="245" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#2b2620" text-anchor="middle">Overdue (2) • Today (5) • No Date (3)</text>
+  <rect x="80" y="300" width="640" height="80" rx="12" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <text x="400" y="345" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#2b2620" text-anchor="middle">☑ Drink water  ☑ Stretch  ☐ Meditate</text>
+  <rect x="80" y="400" width="640" height="120" rx="12" fill="rgba(47,92,84,0.1)" stroke="#2f5c54" stroke-width="1"/>
+  <text x="400" y="450" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#2f5c54" text-anchor="middle">📅 9:00–10:30  Deep Work  📅 12:00–13:00  Lunch</text>
+</svg>

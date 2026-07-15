@@ -1,0 +1,56 @@
+---
+const stats = [
+  { value: "2.4k+", label: "GitHub stars" },
+  { value: "128", label: "Tests passing" },
+  { value: "340+", label: "Patreon supporters" },
+  { value: "42+", label: "Contributors" }
+];
+
+const quotes = [
+  {
+    text: "Finally, a notes app that doesn't make me feel guilty for missing a day.",
+    author: "Sarah C.",
+    role: "Software engineer"
+  },
+  {
+    text: "The AI actually does things — creates habits, schedules events, breaks down vague tasks into 15-minute steps.",
+    author: "Marcus J.",
+    role: "Freelance designer"
+  },
+  {
+    text: "Self-hosted on my Pi 4, accessed via Telegram from bed. Zero friction. This is what local-first should feel like.",
+    author: "Priya P.",
+    role: "DevOps engineer"
+  }
+];
+---
+
+<section class="page-container section-spacer">
+  <div class="divider" style="margin-bottom: clamp(4rem, 8vw, 6rem);"></div>
+
+  <p class="eyebrow fade-in">Community</p>
+  <h2 class="fade-in-up delay-1" style="max-width: 500px; margin-bottom: clamp(4rem, 8vw, 6rem);">
+    Used by people who build things.
+  </h2>
+
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(2rem, 4vw, 3rem); margin-bottom: clamp(4rem, 8vw, 6rem);">
+    {stats.map((s, i) => (
+      <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`}>
+        <p style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.25rem;">{s.value}</p>
+        <p class="body-small">{s.label}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="divider" style="margin-bottom: clamp(3rem, 6vw, 5rem);"></div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 3rem);">
+    {quotes.map((q, i) => (
+      <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`}>
+        <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">"{q.text}"</p>
+        <p style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.125rem;">{q.author}</p>
+        <p class="body-small">{q.role}</p>
+      </div>
+    ))}
+  </div>
+</section>

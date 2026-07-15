@@ -1,0 +1,55 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#f5f0e6"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#bgGrad)"/>
+  <defs>
+    <radialGradient id="bgGrad" cx="15%" cy="-8%" r="45%">
+      <stop offset="0%" stop-color="#2f5c54" stop-opacity="0.16"/>
+      <stop offset="70%" stop-color="#2f5c54" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgGrad2" cx="100%" cy="0%" r="40%">
+      <stop offset="0%" stop-color="#c97b56" stop-opacity="0.14"/>
+      <stop offset="70%" stop-color="#c97b56" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgGrad3" cx="50%" cy="100%" r="40%">
+      <stop offset="0%" stop-color="#a8c3bc" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#a8c3bc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Floating glass cards -->
+  <rect x="80" y="80" width="320" height="200" rx="20" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+  <text x="240" y="130" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" fill="#2f5c54" text-anchor="middle" font-weight="600">Today</text>
+  <rect x="100" y="150" width="280" height="40" rx="8" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <text x="240" y="175" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#2b2620" text-anchor="middle">Tasks • Habits • Events</text>
+  <rect x="100" y="200" width="280" height="40" rx="8" fill="rgba(47,92,84,0.1)" stroke="#2f5c54" stroke-width="1"/>
+  <text x="240" y="225" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#2f5c54" text-anchor="middle">📅 9:00 Deep Work  📅 12:00 Lunch</text>
+  
+  <rect x="450" y="80" width="300" height="200" rx="20" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+  <text x="600" y="130" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" fill="#2f5c54" text-anchor="middle" font-weight="600">Chat</text>
+  <rect x="470" y="150" width="260" height="40" rx="8" fill="rgba(47,92,84,0.1)" stroke="#2f5c54" stroke-width="1"/>
+  <text x="600" y="175" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#2b2620" text-anchor="middle">You: "Log water habit"</text>
+  <rect x="470" y="200" width="260" height="40" rx="8" fill="rgba(201,123,86,0.1)" stroke="#c97b56" stroke-width="1"/>
+  <text x="600" y="225" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#2b2620" text-anchor="middle">KX: ✅ Done! Streak: 12 days</text>
+  
+  <rect x="800" y="80" width="320" height="200" rx="20" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+  <text x="960" y="130" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" fill="#2f5c54" text-anchor="middle" font-weight="600">Insights</text>
+  <polyline points="100,260 140,220 180,240 220,200 260,210 300,170" fill="none" stroke="#2f5c54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(720, 80)"/>
+  <text x="960" y="255" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#6b6255" text-anchor="middle">Mood ↗  Energy ↗  r=0.72</text>
+  
+  <!-- Main title -->
+  <text x="600" y="360" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="48" fill="#2b2620" text-anchor="middle" font-weight="300" letter-spacing="-0.02em">KX</text>
+  <text x="600" y="410" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" fill="#2f5c54" text-anchor="middle" font-weight="500">Self-Hosted ADHD Life Companion</text>
+  <text x="600" y="450" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#6b6255" text-anchor="middle">Notes • Diary • Calendar • Habits • AI Assistant</text>
+  
+  <!-- Badges -->
+  <g font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">
+    <rect x="480" y="480" width="120" height="28" rx="14" fill="rgba(47,92,84,0.2)" stroke="#2f5c54" stroke-width="1"/>
+    <text x="540" y="500" fill="#2f5c54" text-anchor="middle">🔒 Local-First</text>
+    <rect x="620" y="480" width="140" height="28" rx="14" fill="rgba(201,123,86,0.2)" stroke="#c97b56" stroke-width="1"/>
+    <text x="690" y="500" fill="#c97b56" text-anchor="middle">🐳 One-Command</text>
+    <rect x="780" y="480" width="120" height="28" rx="14" fill="rgba(168,195,188,0.3)" stroke="#a8c3bc" stroke-width="1"/>
+    <text x="840" y="500" fill="#3d6b63" text-anchor="middle">🤖 Telegram</text>
+  </g>
+  
+  <text x="600" y="560" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#6b6255" text-anchor="middle">AGPL-3.0  •  kxnotes.com  •  github.com/Kxetch/kx-notes</text>
+</svg>

@@ -1,0 +1,246 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description || "Self-hosted AI notebook. Notes, diary, calendar, habits, tasks. Local-first. Your data, yours."} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+:root {
+  --color-bg: #fafaf8;
+  --color-bg-warm: #f5f3ef;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f0eeea;
+  --color-ink: #1a1815;
+  --color-ink-secondary: #6b665e;
+  --color-ink-tertiary: #a09a90;
+  --color-accent: #b8a88a;
+  --color-accent-deep: #8c7d64;
+  --color-border: #e8e5e0;
+  --color-border-light: #f0eeea;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  line-height: 1.7;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+
+h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 700; letter-spacing: -0.04em; }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 600; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; }
+h4 { font-size: 1.125rem; font-weight: 600; }
+
+p {
+  color: var(--color-ink-secondary);
+  line-height: 1.8;
+  font-size: 1.0625rem;
+}
+
+a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+
+a:hover {
+  text-decoration-color: var(--color-ink);
+}
+
+.page-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: 0 4rem;
+  }
+}
+
+
+.section-spacer {
+  padding: clamp(5rem, 12vw, 10rem) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-narrow {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.section-wide {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-tertiary);
+  margin-bottom: 1.5rem;
+}
+
+.body-large {
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  color: var(--color-ink-secondary);
+  line-height: 1.8;
+}
+
+.body-small {
+  font-size: 0.875rem;
+  color: var(--color-ink-tertiary);
+  line-height: 1.7;
+}
+
+.btn-minimal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-smooth);
+  text-decoration: none;
+}
+
+.btn-minimal:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+  text-decoration: none;
+}
+
+.btn-minimal:active {
+  transform: scale(0.98);
+}
+
+.btn-filled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-bg);
+  background: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-smooth);
+  text-decoration: none;
+}
+
+.btn-filled:hover {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  text-decoration: none;
+}
+
+.btn-filled:active {
+  transform: scale(0.98);
+}
+
+.fade-in {
+  animation: fadeIn 0.8s var(--ease-out) both;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s var(--ease-out) both;
+}
+
+.fade-in-slow {
+  animation: fadeIn 1.2s var(--ease-out) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.delay-1 { animation-delay: 100ms; }
+.delay-2 { animation-delay: 200ms; }
+.delay-3 { animation-delay: 300ms; }
+.delay-4 { animation-delay: 400ms; }
+.delay-5 { animation-delay: 500ms; }
+.delay-6 { animation-delay: 600ms; }
+.delay-7 { animation-delay: 700ms; }
+.delay-8 { animation-delay: 800ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>

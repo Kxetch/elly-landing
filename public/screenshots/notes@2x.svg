@@ -1,0 +1,23 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f5f0e6"/>
+  <rect x="50" y="50" width="700" height="500" rx="16" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+  <text x="400" y="120" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" fill="#2f5c54" text-anchor="middle" font-weight="600">Notes & Diary</text>
+  <text x="400" y="160" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#6b6255" text-anchor="middle">Placeholder — replace with real 2× screenshot</text>
+  <rect x="80" y="200" width="250" height="420" rx="12" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <text x="205" y="235" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#2b2620" text-anchor="middle">📓 All  •  📝 Notes  •  📔 Diary</text>
+  <rect x="100" y="250" width="210" height="80" rx="8" fill="rgba(47,92,84,0.1)" stroke="#2f5c54" stroke-width="1"/>
+  <text x="120" y="280" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#2b2620">Project Ideas</text>
+  <text x="120" y="295" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" fill="#6b6255">#work #ideas  •  Jul 10</text>
+  <rect x="100" y="340" width="210" height="80" rx="8" fill="rgba(201,123,86,0.1)" stroke="#c97b56" stroke-width="1"/>
+  <text x="120" y="370" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#2b2620">Morning pages — Jul 12</text>
+  <text x="120" y="385" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" fill="#6b6255">Mood: 7/9  Energy: 6/9  #diary</text>
+  <rect x="100" y="430" width="210" height="80" rx="8" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <text x="120" y="460" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#2b2620">Books to read</text>
+  <text x="120" y="475" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" fill="#6b6255">#personal  •  Jul 5</text>
+  
+  <rect x="360" y="200" width="360" height="420" rx="12" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <text x="540" y="235" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#2b2620" text-anchor="middle">Morning pages — Jul 12</text>
+  <text x="380" y="260" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#6b6255">Mood:  😊 7    Energy:  ⚡ 6</text>
+  <rect x="380" y="275" width="320" height="320" rx="8" fill="#f5f0e6" stroke="rgba(255,255,255,0.5)"/>
+  <text x="540" y="320" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#2b2620" text-anchor="middle">Woke up feeling decent today...\n\nCoffee first, then the usual\ndump of thoughts onto paper.\n\nNeed to email landlord about\nlease renewal — adding to tasks.\n\nWalk at lunch felt good.\nShould make it a habit.\n\nGrateful for: quiet morning,\ngood coffee, this app.</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f5f0e6"/>
+  <rect x="50" y="50" width="700" height="500" rx="16" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+  <text x="400" y="120" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" fill="#2f5c54" text-anchor="middle" font-weight="600">Calendar</text>
+  <text x="400" y="160" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#6b6255" text-anchor="middle">Placeholder — replace with real 2× screenshot</text>
+  <rect x="80" y="200" width="640" height="320" rx="12" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <text x="400" y="240" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="18" fill="#2b2620" text-anchor="middle">July 2026</text>
+  <g font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#6b6255">
+    <text x="140" y="280" text-anchor="middle">Mon</text>
+    <text x="230" y="280" text-anchor="middle">Tue</text>
+    <text x="320" y="280" text-anchor="middle">Wed</text>
+    <text x="410" y="280" text-anchor="middle">Thu</text>
+    <text x="500" y="280" text-anchor="middle">Fri</text>
+    <text x="590" y="280" text-anchor="middle">Sat</text>
+    <text x="680" y="280" text-anchor="middle">Sun</text>
+  </g>
+  <rect x="215" y="300" width="80" height="80" rx="12" fill="rgba(47,92,84,0.15)" stroke="#2f5c54" stroke-width="2"/>
+  <text x="255" y="325" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" fill="#2b2620" text-anchor="middle" font-weight="600">12</text>
+  <rect x="225" y="340" width="60" height="16" rx="4" fill="#2f5c54"/>
+  <text x="255" y="352" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" fill="white" text-anchor="middle">Deep Work</text>
+  <rect x="225" y="360" width="60" height="16" rx="4" fill="#c97b56"/>
+  <text x="255" y="372" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" fill="white" text-anchor="middle">Walk</text>
+</svg>

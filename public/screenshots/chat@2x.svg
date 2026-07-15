@@ -1,0 +1,14 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f5f0e6"/>
+  <rect x="50" y="50" width="700" height="500" rx="16" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+  <text x="400" y="120" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" fill="#2f5c54" text-anchor="middle" font-weight="600">AI Chat Panel</text>
+  <text x="400" y="160" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#6b6255" text-anchor="middle">Placeholder — replace with real 2× screenshot</text>
+  <rect x="80" y="200" width="640" height="320" rx="12" fill="rgba(255,255,255,0.8)" stroke="rgba(255,255,255,0.5)"/>
+  <rect x="100" y="220" width="600" height="80" rx="8" fill="rgba(47,92,84,0.1)" stroke="#2f5c54" stroke-width="1"/>
+  <text x="120" y="265" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#2b2620">You: "Create a habit for daily walking, 30 min, tiny version: put on shoes"</text>
+  <rect x="100" y="320" width="600" height="100" rx="8" fill="rgba(201,123,86,0.1)" stroke="#c97b56" stroke-width="1"/>
+  <text x="120" y="350" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#2b2620">🤖 Creating habit...  █</text>
+  <text x="120" y="375" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" fill="#6b6255">Tool call: create_habit { name: "Daily Walk", tiny_version: "Put on walking shoes", scheduled_start: "07:00", ... }</text>
+  <rect x="100" y="440" width="600" height="60" rx="8" fill="#2f5c54" opacity="0.1" stroke="#2f5c54" stroke-width="1"/>
+  <text x="120" y="475" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#2b2620">✅ Habit created! Added to calendar at 7:00 AM. Tiny version: "Put on walking shoes"</text>
+</svg>

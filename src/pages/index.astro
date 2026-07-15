@@ -1,17 +1,26 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Philosophy from '../components/Philosophy.astro';
+import Features from '../components/Features.astro';
+import Paths from '../components/Paths.astro';
+import Screenshots from '../components/Screenshots.astro';
+import Story from '../components/Story.astro';
+import Safety from '../components/Safety.astro';
+import TechCred from '../components/TechCred.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="elly - Self-Hosted AI Notebook" description="Notes, diary, calendar, habits, and an AI assistant that actually does things. Runs on your hardware. Your data never leaves your machine.">
+  <Hero />
+  <Philosophy />
+  <Features />
+  <Paths />
+  <Screenshots />
+  <Story />
+  <Safety />
+  <TechCred />
+  <FAQ />
+  <Footer />
+</Layout>

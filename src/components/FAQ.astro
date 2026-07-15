@@ -1,14 +1,14 @@
 ---
 ---
 <section class="page-container section-spacer">
-  <div class="glow-line-magenta"></div>
-  <p class="eyebrow fade-in" style="color: var(--color-magenta);">faq</p>
+  <div class="section-rule" style="background: var(--color-accent-light);"></div>
+  <p class="eyebrow fade-in">faq</p>
   <h2 class="fade-in-up delay-1" style="max-width: 400px; margin-bottom: clamp(4rem, 8vw, 6rem);">Questions.</h2>
   <div class="section-narrow">
     <details class="fade-in-up delay-2" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         Is my data really private?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">Yes. SQLite lives on your disk. Diary entries, chat history, memories, and notes are encrypted at rest with Fernet. The only network calls elly ever makes are your chosen LLM API and Telegram, only if you explicitly enable it. No telemetry. No analytics. No cloud sync.</p>
@@ -17,7 +17,7 @@
     <details class="fade-in-up delay-3" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         Do I need a GPU for local AI?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">No. Ollama runs CPU-only (slower but works). Cloud OpenAI is the default for quality; switch to Ollama for zero data egress. A modern CPU handles 7B-8B models fine for elly's tool-calling use cases.</p>
@@ -26,7 +26,7 @@
     <details class="fade-in-up delay-4" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         What if I stop paying Patreon?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">You keep the last build forever. The AGPL-3.0 core remains free to self-host, build the PWA yourself and run docker compose up. Patreon funds polished binaries and frictionless updates, not the software.</p>
@@ -35,7 +35,7 @@
     <details class="fade-in-up delay-5" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         Can I run this on a Raspberry Pi?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">Yes. Multi-arch Docker image (amd64 + arm64). docker compose up works on Pi 4/5 with 2GB+ RAM. Access via SSH tunnel or enable the Telegram bot for remote interaction.</p>
@@ -44,7 +44,7 @@
     <details class="fade-in-up delay-6" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         How does Telegram remote access work?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">Pair once: Settings, Connect Telegram, send /start with the 6-digit code. Then chat with the bot from your phone, log habits, add tasks, ask questions. Messages queue while your machine sleeps.</p>
@@ -53,7 +53,7 @@
     <details class="fade-in-up delay-7" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         Is there a mobile app?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">The PWA installs to your home screen. iOS Safari Share, Add to Dock. Android Chrome, Install App. Works offline. Telegram bot is the intended remote interface.</p>
@@ -62,7 +62,7 @@
     <details class="fade-in-up delay-8" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         What is AGPL-3.0?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">You can use, modify, and self-host freely. If you run a modified version as a public network service, you must offer users the modified source. Private self-hosting has no obligations beyond license notices.</p>
@@ -71,7 +71,7 @@
     <details class="fade-in-up delay-8" style="border-bottom: 1px solid var(--color-border);">
       <summary style="padding: 1.5rem 0; cursor: pointer; font-size: 1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--color-ink);">
         How do I report a security issue?
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-cyan)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--color-accent)" stroke-width="1.5" style="flex-shrink: 0; transition: transform 0.2s;"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </summary>
       <div style="padding: 0 0 1.5rem 0;">
         <p style="font-size: 0.9375rem; line-height: 1.8;">Use GitHub's private vulnerability reporting (Security tab). See SECURITY.md for the full threat model, scope, and response commitments.</p>

@@ -14,29 +14,34 @@ const { title, description } = Astro.props;
     <meta name="description" content={description || "Self-hosted AI notebook. Notes, diary, calendar, habits, tasks. Local-first. Your data, yours."} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
     <slot />
   </body>
 </html>
 
 <style is:global>
 :root {
-  --color-bg: #fafaf8;
-  --color-bg-warm: #f5f3ef;
-  --color-surface: #ffffff;
-  --color-surface-dim: #f0eeea;
-  --color-ink: #1a1815;
-  --color-ink-secondary: #6b665e;
-  --color-ink-tertiary: #a09a90;
-  --color-accent: #b8a88a;
-  --color-accent-deep: #8c7d64;
-  --color-border: #e8e5e0;
-  --color-border-light: #f0eeea;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --color-bg: #0a0a1a;
+  --color-bg-card: #111128;
+  --color-bg-elevated: #181838;
+  --color-surface: #1a1a3a;
+  --color-ink: #e8e8f0;
+  --color-ink-dim: #8888aa;
+  --color-ink-muted: #555570;
+  --color-cyan: #00e5ff;
+  --color-magenta: #ff2d95;
+  --color-violet: #8844ff;
+  --color-amber: #ffaa00;
+  --color-border: #2a2a50;
+  --color-border-glow: rgba(0, 229, 255, 0.25);
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --glow-cyan: 0 0 20px rgba(0, 229, 255, 0.3);
+  --glow-magenta: 0 0 20px rgba(255, 45, 149, 0.3);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,16 +60,43 @@ body {
   font-size: 16px;
   letter-spacing: -0.01em;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-cyan);
+  color: var(--color-bg);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent-deep);
+  outline: 2px solid var(--color-cyan);
   outline-offset: 2px;
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 999;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,40 +113,36 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; }
 h4 { font-size: 1.125rem; font-weight: 600; }
 
 p {
-  color: var(--color-ink-secondary);
+  color: var(--color-ink-dim);
   line-height: 1.8;
   font-size: 1.0625rem;
 }
 
 a {
-  color: var(--color-ink);
-  text-decoration: underline;
-  text-decoration-color: var(--color-border);
-  text-underline-offset: 3px;
-  transition: text-decoration-color 0.2s;
+  color: var(--color-cyan);
+  text-decoration: none;
+  transition: all 0.3s;
 }
 
 a:hover {
-  text-decoration-color: var(--color-ink);
+  text-shadow: var(--glow-cyan);
 }
 
 .page-container {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
-  .page-container {
-    padding: 0 4rem;
-  }
+  .page-container { padding: 0 4rem; }
 }
-
 
 .section-spacer {
   padding: clamp(5rem, 12vw, 10rem) 0;
   position: relative;
-  z-index: 1;
 }
 
 .section-narrow {
@@ -130,92 +158,141 @@ a:hover {
 .eyebrow {
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-ink-tertiary);
+  color: var(--color-cyan);
   margin-bottom: 1.5rem;
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.eyebrow::before {
+  content: "//";
+  color: var(--color-ink-muted);
 }
 
 .body-large {
   font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
-  color: var(--color-ink-secondary);
+  color: var(--color-ink-dim);
   line-height: 1.8;
 }
 
 .body-small {
   font-size: 0.875rem;
-  color: var(--color-ink-tertiary);
+  color: var(--color-ink-muted);
   line-height: 1.7;
+  font-family: var(--font-mono);
 }
 
-.btn-minimal {
+.btn-cyber {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.875rem 2rem;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--color-ink);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
   background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: 100px;
+  border: 1px solid var(--color-cyan);
+  border-radius: 0;
   cursor: pointer;
-  transition: all 0.3s var(--ease-smooth);
+  transition: all 0.3s;
   text-decoration: none;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
 }
 
-.btn-minimal:hover {
-  background: var(--color-ink);
+.btn-cyber::before {
+  content: ">";
+  margin-right: 0.25rem;
+  color: var(--color-ink-muted);
+  transition: color 0.3s;
+}
+
+.btn-cyber:hover {
+  background: var(--color-cyan);
   color: var(--color-bg);
-  border-color: var(--color-ink);
-  text-decoration: none;
+  box-shadow: var(--glow-cyan);
+  text-shadow: none;
 }
 
-.btn-minimal:active {
+.btn-cyber:hover::before {
+  color: var(--color-bg);
+}
+
+.btn-cyber:active {
   transform: scale(0.98);
 }
 
-.btn-filled {
+.btn-cyber-filled {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.875rem 2rem;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--color-bg);
-  background: var(--color-ink);
-  border: 1px solid var(--color-ink);
-  border-radius: 100px;
+  background: var(--color-cyan);
+  border: 1px solid var(--color-cyan);
+  border-radius: 0;
   cursor: pointer;
-  transition: all 0.3s var(--ease-smooth);
+  transition: all 0.3s;
   text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
 }
 
-.btn-filled:hover {
-  background: var(--color-accent-deep);
-  border-color: var(--color-accent-deep);
-  text-decoration: none;
+.btn-cyber-filled::before {
+  content: ">";
+  margin-right: 0.25rem;
 }
 
-.btn-filled:active {
+.btn-cyber-filled:hover {
+  background: var(--color-magenta);
+  border-color: var(--color-magenta);
+  box-shadow: var(--glow-magenta);
+}
+
+.btn-cyber-filled:active {
   transform: scale(0.98);
 }
 
-.fade-in {
-  animation: fadeIn 0.8s var(--ease-out) both;
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+  margin: clamp(3rem, 6vw, 5rem) 0;
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.8s var(--ease-out) both;
+.glow-line-magenta {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-magenta), transparent);
+  margin: clamp(3rem, 6vw, 5rem) 0;
 }
 
-.fade-in-slow {
-  animation: fadeIn 1.2s var(--ease-out) both;
+.card-cyber {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
+
+.card-cyber:hover {
+  border-color: var(--color-border-glow);
+  box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.03);
+}
+
+.fade-in { animation: fadeIn 0.8s ease-out both; }
+.fade-in-up { animation: fadeInUp 0.8s ease-out both; }
+.fade-in-slow { animation: fadeIn 1.2s ease-out both; }
 
 @keyframes fadeIn {
   from { opacity: 0; }

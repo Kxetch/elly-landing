@@ -1,34 +1,49 @@
 ---
-const features = [
-  { name: "Notes & diary", detail: "Rich text, markdown, mood and energy tracking, full-text search, encrypted at rest." },
-  { name: "Calendar & time-blocking", detail: "Day, week, month views. Drag to reschedule. Habit-linked events. Color-coded categories." },
-  { name: "Tasks with AI breakdown", detail: "Vague intentions become tiny concrete steps with time estimates. Nested subtasks, priorities, due dates." },
-  { name: "Habits with forgiving streaks", detail: "Daily or weekly. Routine, fitness, or finance. Tiny versions count. Archive and restore anytime." },
-  { name: "AI assistant with tools", detail: "Creates events, logs habits, breaks down tasks, remembers facts. OpenAI or local Ollama." },
-  { name: "Telegram remote access", detail: "Pair once with a code. Log habits, dump tasks from your phone. Messages queue while you sleep." },
-  { name: "Insights and correlations", detail: "Mood trends, habit heatmaps, Pearson correlations. LLM-narrated weekly reflection in neutral language." },
-  { name: "Security first", detail: "OS keyring auth, field-level Fernet encryption, CSP headers, rate limiting, loopback-only binding." },
-  { name: "One-command deploy", detail: "Docker compose up on Mac, Windows, Linux, Raspberry Pi. Named volume persists your data." }
-];
 ---
-
 <section class="page-container section-spacer">
-
+  <div class="glow-line-magenta"></div>
   <div style="display: grid; grid-template-columns: 1fr 2fr; gap: clamp(3rem, 6vw, 5rem);">
     <div>
-      <p class="eyebrow fade-in">Features</p>
-      <h2 class="fade-in-up delay-1">
-        Everything you need.
-      </h2>
+      <p class="eyebrow fade-in" style="color: var(--color-magenta);">features</p>
+      <h2 class="fade-in-up delay-1">Everything you need.</h2>
     </div>
-
     <div>
-      {features.map((f, i) => (
-        <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`} style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
-          <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500;">{f.name}</h4>
-          <p style="font-size: 0.9375rem; line-height: 1.7;">{f.detail}</p>
-        </div>
-      ))}
+      <div class="fade-in-up delay-2" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">Notes & diary</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Rich text, markdown, mood and energy tracking, full-text search, encrypted at rest.</p>
+      </div>
+      <div class="fade-in-up delay-3" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">Calendar & time-blocking</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Day, week, month views. Drag to reschedule. Habit-linked events. Color-coded categories.</p>
+      </div>
+      <div class="fade-in-up delay-4" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">Tasks with AI breakdown</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Vague intentions become tiny concrete steps with time estimates. Nested subtasks, priorities, due dates.</p>
+      </div>
+      <div class="fade-in-up delay-5" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">Habits with forgiving streaks</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Daily or weekly. Routine, fitness, or finance. Tiny versions count. Archive and restore anytime.</p>
+      </div>
+      <div class="fade-in-up delay-6" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">AI assistant with tools</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Creates events, logs habits, breaks down tasks, remembers facts. OpenAI or local Ollama.</p>
+      </div>
+      <div class="fade-in-up delay-7" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">Telegram remote access</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Pair once with a code. Log habits, dump tasks from your phone. Messages queue while you sleep.</p>
+      </div>
+      <div class="fade-in-up delay-8" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">Insights and correlations</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Mood trends, habit heatmaps, Pearson correlations. LLM-narrated weekly reflection in neutral language.</p>
+      </div>
+      <div class="fade-in-up delay-8" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">Security first</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">OS keyring auth, field-level Fernet encryption, CSP headers, rate limiting, loopback-only binding.</p>
+      </div>
+      <div class="fade-in-up delay-8" style="padding: 1.5rem 0; border-bottom: 1px solid var(--color-border);">
+        <h4 style="margin-bottom: 0.375rem; font-size: 1rem; font-weight: 500; color: var(--color-ink);">One-command deploy</h4>
+        <p style="font-size: 0.9375rem; line-height: 1.7;">Docker compose up on Mac, Windows, Linux, Raspberry Pi. Named volume persists your data.</p>
+      </div>
     </div>
   </div>
 </section>

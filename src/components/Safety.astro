@@ -1,43 +1,29 @@
 ---
-const noList = [
-  "No ads",
-  "No tracking",
-  "No analytics",
-  "No cloud sync",
-  "No accounts",
-  "No social features",
-  "No camera access",
-  "No microphone access",
-  "No location data",
-  "No data selling",
-  "No browser dependency",
-  "No app store gatekeepers"
-];
 ---
-
 <section class="page-container section-spacer">
-
+  <div class="glow-line-magenta"></div>
   <div style="display: grid; grid-template-columns: 1fr 2fr; gap: clamp(3rem, 6vw, 5rem);">
     <div>
-      <p class="eyebrow fade-in">Safety</p>
-      <h2 class="fade-in-up delay-1">
-        The no-list.
-      </h2>
+      <p class="eyebrow fade-in" style="color: var(--color-magenta);">safety</p>
+      <h2 class="fade-in-up delay-1">The no-list.</h2>
     </div>
-
     <div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
-        {noList.map((item, i) => (
-          <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`} style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-secondary);">
-            {item}
-          </div>
-        ))}
+        <div class="fade-in-up delay-2" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No ads</div>
+        <div class="fade-in-up delay-3" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No tracking</div>
+        <div class="fade-in-up delay-4" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No analytics</div>
+        <div class="fade-in-up delay-5" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No cloud sync</div>
+        <div class="fade-in-up delay-6" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No accounts</div>
+        <div class="fade-in-up delay-7" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No social features</div>
+        <div class="fade-in-up delay-8" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No camera access</div>
+        <div class="fade-in-up delay-8" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No microphone access</div>
+        <div class="fade-in-up delay-8" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No location data</div>
+        <div class="fade-in-up delay-8" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No data selling</div>
+        <div class="fade-in-up delay-8" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No browser dependency</div>
+        <div class="fade-in-up delay-8" style="padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-size: 1rem; color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 0.875rem;">No app store gatekeepers</div>
       </div>
-
       <div class="fade-in-up delay-8" style="margin-top: 3rem;">
-        <p class="body-small">
-          elly is designed for care, with care. Encrypted at rest. Local token auth via OS keyring. Loopback-only network binding. Full threat model in SECURITY.md.
-        </p>
+        <p class="body-small" style="font-family: var(--font-sans); font-size: 0.9375rem;">elly is designed for care, with care. Encrypted at rest. Local token auth via OS keyring. Loopback-only network binding. Full threat model in SECURITY.md.</p>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,32 +14,161 @@ const { title, description } = Astro.props;
     <meta name="description" content={description || "Self-hosted AI notebook. Notes, diary, calendar, habits, tasks. Local-first. Your data, yours."} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script is:inline>
+      // Blocking, runs before first paint -- dark is the page's default
+      // (baked into the <html> tag above already, so no-JS visitors and
+      // the very first frame both already get it correctly). This only
+      // ever needs to *correct* to light, for a returning visitor who
+      // explicitly chose it last time -- never the reverse, so there's
+      // no dark-mode flash to avoid on the far more common path.
+      try {
+        if (localStorage.getItem("elly-theme") === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
+    <button
+      id="theme-toggle"
+      type="button"
+      aria-label="Switch to light mode"
+      title="Switch color theme"
+    >
+      <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+      <svg class="theme-icon theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+    <div class="orb-field" aria-hidden="true">
+      <span class="orb orb-blue" data-orb-id="1" style="width: 46vmin; height: 46vmin; top: -14vmin; right: -10vmin;"></span>
+      <span class="orb orb-coral" data-orb-id="2" style="width: 40vmin; height: 40vmin; bottom: -12vmin; left: -8vmin;"></span>
+      <span class="orb orb-teal" data-orb-id="3" style="width: 36vmin; height: 36vmin; top: 6vmin; left: -10vmin;"></span>
+      <span class="orb orb-amber" data-orb-id="4" style="width: 38vmin; height: 38vmin; bottom: 4vmin; right: -8vmin;"></span>
+      <span class="orb orb-blue" data-orb-id="5" style="width: 42vmin; height: 42vmin; top: 32vmin; left: 18vmin;"></span>
+      <span class="orb orb-coral" data-orb-id="6" style="width: 34vmin; height: 34vmin; top: 20vmin; right: 14vmin;"></span>
+    </div>
     <slot />
+    <script>
+      // Subtle, section-aware background atmosphere: each page section
+      // declares which orb(s) (by data-orb-id) should softly fade in
+      // while it's in view via a data-orb="1,2" attribute -- see the
+      // section components. Kept as a single small vanilla script
+      // (no framework) matching Astro's zero-JS-by-default approach;
+      // does nothing but toggle an `is-visible` class, all actual
+      // motion/timing lives in CSS so prefers-reduced-motion (handled
+      // globally below) still applies automatically.
+      const sections = document.querySelectorAll("[data-orb]");
+      const orbs = document.querySelectorAll(".orb");
+      const orbsById = new Map();
+      orbs.forEach((orb) => {
+        const id = orb.getAttribute("data-orb-id");
+        if (!orbsById.has(id)) orbsById.set(id, []);
+        orbsById.get(id).push(orb);
+      });
+
+      if (sections.length && orbs.length && "IntersectionObserver" in window) {
+        const setVisible = (ids, visible) => {
+          ids.forEach((id) => {
+            (orbsById.get(id) || []).forEach((orb) => {
+              orb.classList.toggle("is-visible", visible);
+            });
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const ids = (entry.target.getAttribute("data-orb") || "")
+                .split(",")
+                .map((s) => s.trim())
+                .filter(Boolean);
+              setVisible(ids, entry.isIntersecting);
+            });
+          },
+          { rootMargin: "-10% 0px -10% 0px", threshold: 0 },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      }
+    </script>
+    <script>
+      // Theme toggle -- dark is the default (see the blocking script in
+      // <head> for the no-flash story on load); this only handles a
+      // deliberate click from here on, persisting the choice so it
+      // sticks across visits.
+      const toggle = document.getElementById("theme-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const root = document.documentElement;
+          const isLight = root.getAttribute("data-theme") === "light";
+          const next = isLight ? "dark" : "light";
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("elly-theme", next);
+          } catch (e) {}
+          toggle.setAttribute("aria-label", next === "light" ? "Switch to dark mode" : "Switch to light mode");
+        });
+      }
+    </script>
   </body>
 </html>
 
 <style is:global>
+/* Dark is the page's default (see the <html data-theme="dark"> in the
+   template above) -- these are the dark-mode values, living directly on
+   :root rather than behind a [data-theme="dark"] selector, so a no-JS
+   visitor and the very first frame both get a fully-themed page with no
+   extra selector specificity/ordering to worry about. [data-theme="light"]
+   below is the override for anyone who's toggled it or has it stored. */
 :root {
-  --hue: 232;
-  --color-bg: hsl(232, 25%, 97%);
-  --color-bg-warm: hsl(232, 20%, 94%);
-  --color-surface: hsl(232, 22%, 100%);
-  --color-ink: hsl(232, 40%, 16%);
-  --color-ink-secondary: hsl(232, 25%, 38%);
-  --color-ink-tertiary: hsl(232, 18%, 56%);
-  --color-accent: hsl(232, 45%, 42%);
-  --color-accent-light: hsl(232, 40%, 65%);
-  --color-accent-subtle: hsl(232, 30%, 90%);
-  --color-border: hsl(232, 20%, 88%);
-  --color-border-light: hsl(232, 18%, 93%);
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-serif: "DM Serif Display", Georgia, serif;
+  --color-bg: #15130f;
+  --color-bg-warm: #1c1913;
+  --color-surface: #211d17;
+  --color-ink: #f4f1ea;
+  --color-ink-secondary: #b6afa2;
+  --color-ink-tertiary: #7d7669;
+  --color-geo-blue: #4f8dff;
+  --color-geo-blue-hover: #7aabff;
+  --color-geo-coral: #ff8266;
+  --color-geo-teal: #2dd4bf;
+  --color-geo-amber: #f5a524;
+  --color-border: #332e24;
+  --font-sans: "Inter", system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --color-bg: #f8f7f4;
+  --color-bg-warm: #f0eeea;
+  --color-surface: #ffffff;
+  --color-ink: #1a1815;
+  --color-ink-secondary: #5a5650;
+  --color-ink-tertiary: #9a9590;
+  --color-geo-blue: #2563eb;
+  --color-geo-blue-hover: #1d4ed8;
+  --color-geo-coral: #e8634a;
+  --color-geo-teal: #0d9488;
+  --color-geo-amber: #d97706;
+  --color-border: #e2e0dc;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Smooth, low-cost theme-switch transition for anything using the color
+   tokens (most of the page -- cards/dividers via inline styles) that
+   doesn't already declare its own transition (buttons/links already
+   have `transition: all 0.2s`, which already covers this, and wins on
+   specificity regardless). Respects prefers-reduced-motion globally,
+   same as every other transition/animation on this page. */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
 
 html {
   scroll-behavior: smooth;
@@ -55,30 +184,79 @@ body {
   font-size: 16px;
   letter-spacing: -0.01em;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-::selection {
-  background: var(--color-accent);
-  color: #fff;
+::selection { background: var(--color-geo-blue); color: #fff; }
+:focus-visible { outline: 2px solid var(--color-geo-blue); outline-offset: 2px; }
+
+/* Theme toggle -- fixed at the top so it's reachable from anywhere on
+   the page without needing a persistent header/nav bar (this page
+   doesn't otherwise have one). Shows the icon for what clicking it
+   switches *to* (a sun while dark mode is active, a moon while light
+   mode is active), a common enough convention that the tooltip/
+   aria-label (kept in sync by the toggle script) carries the rest. */
+#theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  /* Listed explicitly (not relying on the global `* {}` rule) since the
+     ID selector's higher specificity would otherwise replace that rule
+     entirely for this element rather than merging with it, dropping
+     the color transitions the moment `transform` needs its own. */
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  #theme-toggle {
+    background: color-mix(in srgb, var(--color-surface) 75%, transparent);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+}
+
+#theme-toggle:hover { transform: scale(1.06); border-color: var(--color-geo-blue); }
+#theme-toggle:active { transform: scale(0.94); }
+
+.theme-icon {
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.35s ease;
+}
+
+.theme-icon-moon { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+.theme-icon-sun { opacity: 1; transform: rotate(0deg) scale(1); }
+
+:root[data-theme="light"] .theme-icon-sun { opacity: 0; transform: rotate(90deg) scale(0.5); }
+:root[data-theme="light"] .theme-icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+@media (max-width: 640px) {
+  #theme-toggle { top: 1rem; right: 1rem; width: 38px; height: 38px; }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.1;
   color: var(--color-ink);
 }
 
-h1 { font-size: clamp(3rem, 8vw, 6.5rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-family: var(--font-sans); font-weight: 600; }
-h4 { font-size: 1.125rem; font-family: var(--font-sans); font-weight: 600; }
+h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 800; letter-spacing: -0.04em; }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; }
+h4 { font-size: 1.125rem; font-weight: 600; }
 
 p {
   color: var(--color-ink-secondary);
@@ -87,14 +265,12 @@ p {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-geo-blue);
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
-a:hover {
-  color: var(--color-ink);
-}
+a:hover { opacity: 0.8; }
 
 .page-container {
   max-width: 1080px;
@@ -106,28 +282,16 @@ a:hover {
   .page-container { padding: 0 4rem; }
 }
 
-.section-spacer {
-  padding: clamp(5rem, 12vw, 10rem) 0;
-}
-
-.section-narrow {
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.section-wide {
-  max-width: 1080px;
-  margin: 0 auto;
-}
+.section-spacer { padding: clamp(5rem, 12vw, 10rem) 0; }
+.section-narrow { max-width: 640px; margin: 0 auto; }
 
 .eyebrow {
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-geo-blue);
   margin-bottom: 1.5rem;
-  font-family: var(--font-sans);
 }
 
 .body-large {
@@ -149,23 +313,17 @@ a:hover {
   padding: 0.875rem 2rem;
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: 600;
   color: #fff;
-  background: var(--color-accent);
-  border: 1px solid var(--color-accent);
-  border-radius: 100px;
+  background: var(--color-geo-blue);
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
   text-decoration: none;
 }
 
-.btn-primary:hover {
-  background: var(--color-ink);
-  color: #fff;
-  border-color: var(--color-ink);
-}
-
+.btn-primary:hover { background: var(--color-geo-blue-hover); color: #fff; opacity: 1; }
 .btn-primary:active { transform: scale(0.98); }
 
 .btn-ghost {
@@ -175,46 +333,46 @@ a:hover {
   padding: 0.875rem 2rem;
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: 600;
   color: var(--color-ink);
   background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: 100px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
   text-decoration: none;
 }
 
-.btn-ghost:hover {
-  background: var(--color-accent-subtle);
-  border-color: var(--color-accent-light);
-  color: var(--color-accent);
-}
-
+.btn-ghost:hover { border-color: var(--color-ink); }
 .btn-ghost:active { transform: scale(0.98); }
 
-.section-rule {
-  width: 48px;
-  height: 3px;
-  background: var(--color-accent);
-  margin-bottom: clamp(3rem, 6vw, 5rem);
-  border-radius: 2px;
+.geo-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.geo-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.geo-divider::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--color-border);
 }
 
 .fade-in { animation: fadeIn 0.8s ease-out both; }
 .fade-in-up { animation: fadeInUp 0.8s ease-out both; }
 .fade-in-slow { animation: fadeIn 1.2s ease-out both; }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(1.5rem); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(1.5rem); } to { opacity: 1; transform: translateY(0); } }
 
 .delay-1 { animation-delay: 100ms; }
 .delay-2 { animation-delay: 200ms; }
@@ -230,6 +388,51 @@ a:hover {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Background atmosphere: soft, frosted gradient orbs that fade in and
+   out as you scroll past each section (see the inline script above and
+   each section's data-orb attribute). Fixed behind all content, using
+   only the existing accent palette so it reads as an extension of the
+   page's own geo-circle motif rather than a separate decoration. */
+.orb-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(7vmin);
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 2.4s var(--ease-smooth, ease), transform 2.4s var(--ease-smooth, ease);
+  will-change: opacity, transform;
+}
+
+.orb.is-visible {
+  opacity: 0.16;
+  transform: scale(1);
+}
+
+.orb-blue  { background: radial-gradient(circle, var(--color-geo-blue) 0%, transparent 68%); }
+.orb-coral { background: radial-gradient(circle, var(--color-geo-coral) 0%, transparent 68%); }
+.orb-teal  { background: radial-gradient(circle, var(--color-geo-teal) 0%, transparent 68%); }
+.orb-amber { background: radial-gradient(circle, var(--color-geo-amber) 0%, transparent 68%); }
+
+/* Backdrop-filter gives the orbs an actual frosted-glass quality where
+   they overlap page content, on top of their own blurred gradient --
+   graceful no-op on browsers without support (still looks correct via
+   the gradient + filter: blur alone). */
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .orb {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
 }
 </style>

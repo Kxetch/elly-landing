@@ -1,54 +1,30 @@
 ---
 ---
-<section class="page-container section-spacer">
-  <div class="section-rule"></div>
-  <p class="eyebrow fade-in">paths</p>
-  <h2 class="fade-in-up delay-1" style="max-width: 500px; margin-bottom: clamp(4rem, 8vw, 6rem);">Same core. Different friction.</h2>
-  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 3rem);">
+<section class="page-container section-spacer" data-orb="5">
+  <div class="geo-divider">
+    <span class="geo-circle" style="background: var(--color-geo-coral);"></span>
+    <span class="geo-circle" style="background: var(--color-geo-blue);"></span>
+    <span class="geo-circle" style="background: var(--color-geo-teal);"></span>
+  </div>
+  <p class="eyebrow fade-in">pricing</p>
+  <h2 class="fade-in-up delay-1" style="max-width: 500px; margin-bottom: clamp(4rem, 8vw, 6rem);">One plan. No tiers to compare.</h2>
+  <div style="display: grid; grid-template-columns: minmax(0, 420px); justify-content: center; gap: clamp(2rem, 4vw, 3rem);">
     <div class="fade-in-up delay-2">
-      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem;">
-        <p class="eyebrow" style="margin-bottom: 0.5rem;">patreon</p>
-        <p style="font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.25rem; color: var(--color-accent); font-family: var(--font-serif);">$5-15/mo</p>
-        <p style="margin-bottom: 1.5rem;">Polished installers, auto-updates, priority support. Best for most people.</p>
-        <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">One-click Docker installer</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Pre-built PWA</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Auto-update notifications</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Priority support</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Early beta access</li>
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 2.5rem; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--color-geo-blue);"></div>
+        <p class="eyebrow" style="margin-bottom: 0.5rem;">beta supporter</p>
+        <p style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.25rem; color: var(--color-geo-blue);">$5<span style="font-size: 1.125rem; font-weight: 600; color: var(--color-ink-tertiary);">/mo</span></p>
+        <p style="margin-bottom: 1.5rem;">One recurring plan, no tiers. Full access to elly and every update as it ships, for the whole beta.</p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border);">Full app: PWA + native installers (macOS, Windows, Linux)</li>
+          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border);">Every new feature and beta version as it ships</li>
+          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border);">Guided one-version-at-a-time updates, database always backed up first</li>
+          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border);">Direct input on what gets built next</li>
         </ul>
-        <a href="https://patreon.com/kxnotes" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center;">Get elly</a>
-      </div>
-    </div>
-    <div class="fade-in-up delay-3">
-      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem;">
-        <p class="eyebrow" style="margin-bottom: 0.5rem;">self-host</p>
-        <p style="font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.25rem; font-family: var(--font-serif);">Free</p>
-        <p style="margin-bottom: 1.5rem;">Same core, you build the PWA. For tinkerers and privacy maxis.</p>
-        <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">docker compose up</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Full source access</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Modify freely</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Runs on Raspberry Pi</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">No account needed</li>
-        </ul>
-        <a href="https://github.com/Kxetch/kx-notes" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="width: 100%; justify-content: center;">View on GitHub</a>
-      </div>
-    </div>
-    <div class="fade-in-up delay-4">
-      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem;">
-        <p class="eyebrow" style="margin-bottom: 0.5rem;">contribute</p>
-        <p style="font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.25rem; font-family: var(--font-serif);">Open source</p>
-        <p style="margin-bottom: 1.5rem;">Local dev with hot reload. Pull requests welcome.</p>
-        <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">TypeScript + Python</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">128 tests passing</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">MCP server included</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Design principles in AGENTS.md</li>
-          <li style="padding: 0.375rem 0; font-size: 0.875rem; color: var(--color-ink-secondary); border-bottom: 1px solid var(--color-border-light);">Code of Conduct enforced</li>
-        </ul>
-        <a href="https://github.com/Kxetch/kx-notes/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="width: 100%; justify-content: center;">Read CONTRIBUTING.md</a>
+        <a href="https://www.patreon.com/cw/ellyai?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center; margin-bottom: 1rem;">Get elly -- $5/mo</a>
+        <p class="body-small" style="text-align: center;">Locked in for as long as you stay subscribed. Starting price moves to $10/mo once elly leaves beta at 1.0 -- join now to keep this rate.</p>
       </div>
     </div>
   </div>
+  <p class="body-small fade-in-up delay-3" style="margin-top: clamp(2.5rem, 5vw, 3.5rem); max-width: 640px;">The backend (domain logic, MCP server, REST API) is planned to become open source in its own repository once it's ready -- self-hosting the free/open core will be a real option at that point. Today, during the beta, the full polished app (dashboard, installers, and ongoing updates) is only available through the plan above.</p>
 </section>

@@ -1,38 +1,42 @@
 ---
 ---
-<section class="page-container section-spacer">
-  <div class="section-rule"></div>
+<section class="page-container section-spacer" data-orb="5,6">
+  <div class="geo-divider">
+    <span class="geo-circle" style="background: var(--color-geo-teal);"></span>
+    <span class="geo-circle" style="background: var(--color-geo-blue);"></span>
+    <span class="geo-circle" style="background: var(--color-geo-amber);"></span>
+  </div>
   <p class="eyebrow fade-in">engineering</p>
   <h2 class="fade-in-up delay-1" style="max-width: 500px; margin-bottom: clamp(4rem, 8vw, 6rem);">Verified in CI, not marketing.</h2>
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(4rem, 8vw, 6rem);">
     <div class="fade-in-up delay-2">
-      <h4 style="margin-bottom: 1.5rem; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);">Technical</h4>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">128 automated tests (92 backend + 36 frontend)</div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">Field-level Fernet encryption at rest</div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">OS keyring auth with file fallback</div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">Rate limiting via slowapi</div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">CSP, X-Frame-Options: DENY, nosniff headers</div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">Multi-arch Docker (amd64 + arm64)</div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">Loopback-only binding (127.0.0.1)</div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light); font-size: 0.9375rem; color: var(--color-ink-secondary);">Full threat model in SECURITY.md</div>
+      <h4 style="margin-bottom: 1.5rem; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-geo-blue);">Technical</h4>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">540+ automated tests (392 backend + 150 frontend), all passing</div>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">Field-level Fernet encryption at rest</div>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">OS keyring auth with file fallback</div>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">Rate limiting via slowapi</div>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">CSP, X-Frame-Options: DENY, nosniff headers</div>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">Multi-arch Docker (amd64 + arm64)</div>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">Loopback-only binding (127.0.0.1)</div>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border); font-size: 0.9375rem; color: var(--color-ink-secondary);">Full threat model in SECURITY.md</div>
     </div>
     <div class="fade-in-up delay-3">
-      <h4 style="margin-bottom: 1.5rem; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);">Architecture</h4>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light);">
+      <h4 style="margin-bottom: 1.5rem; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-geo-coral);">Architecture</h4>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
         <span style="font-size: 0.9375rem; font-weight: 600; color: var(--color-ink);">One domain layer</span>
         <span style="font-size: 0.9375rem; color: var(--color-ink-secondary);">, MCP, REST, Telegram bot all call the same functions.</span>
       </div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light);">
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
         <span style="font-size: 0.9375rem; font-weight: 600; color: var(--color-ink);">SQLite on disk</span>
         <span style="font-size: 0.9375rem; color: var(--color-ink-secondary);">. Never in repo, never iCloud. Your machine, your database.</span>
       </div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light);">
-        <span style="font-size: 0.9375rem; font-weight: 600; color: var(--color-ink);">PWA installable</span>
-        <span style="font-size: 0.9375rem; color: var(--color-ink-secondary);">. Safari Add to Dock, Android Install App. Offline-capable.</span>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
+        <span style="font-size: 0.9375rem; font-weight: 600; color: var(--color-ink);">Installable desktop app</span>
+        <span style="font-size: 0.9375rem; color: var(--color-ink-secondary);">. Real PWA, "Add to Dock" from your desktop browser. Built for Mac/PC/Linux, not phone-first.</span>
       </div>
-      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-light);">
-        <span style="font-size: 0.9375rem; font-weight: 600; color: var(--color-ink);">AGPL-3.0</span>
-        <span style="font-size: 0.9375rem; color: var(--color-ink-secondary);">. Free to self-host and modify. Public service must offer source.</span>
+      <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);">
+        <span style="font-size: 0.9375rem; font-weight: 600; color: var(--color-ink);">Open-core roadmap</span>
+        <span style="font-size: 0.9375rem; color: var(--color-ink-secondary);">. The backend is headed for its own AGPL-3.0 repository once it's ready -- auditable, not a black box.</span>
       </div>
     </div>
   </div>

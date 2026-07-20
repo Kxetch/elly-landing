@@ -1,0 +1,292 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Tutorials, elly" description="Step by step guides for installing elly on macOS, Windows, or Linux, and connecting the AI assistant with OpenAI, Telegram, or a local Ollama model.">
+  <section class="page-container" style="padding-top: clamp(7rem, 15vh, 11rem); padding-bottom: clamp(2rem, 5vw, 3rem);" data-orb="1,2">
+    <p class="eyebrow fade-in">tutorials</p>
+    <h1 class="fade-in-up delay-1" style="font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em; margin-bottom: 1.5rem;">Get up and running.</h1>
+    <p class="body-large fade-in-up delay-2" style="max-width: 620px;">Six short guides. Installing elly on your platform, and connecting the AI assistant however you'd like it set up. Copy, paste, done, no coding knowledge needed.</p>
+  </section>
+
+  <section class="page-container" style="padding-bottom: clamp(2rem, 5vw, 3rem);">
+    <div class="fade-in-up delay-3" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+      <a href="#macos" class="tutorial-nav-link">Install on macOS</a>
+      <a href="#windows" class="tutorial-nav-link">Install on Windows</a>
+      <a href="#linux" class="tutorial-nav-link">Install on Linux</a>
+      <a href="#openai" class="tutorial-nav-link">Add an OpenAI key</a>
+      <a href="#telegram" class="tutorial-nav-link">Connect Telegram</a>
+      <a href="#ollama" class="tutorial-nav-link">Set up Ollama</a>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- macOS install -->
+  <!-- ============================================================ -->
+  <section id="macos" class="page-container section-spacer" data-orb="3" style="padding-top: clamp(2rem, 4vw, 3rem);">
+    <div class="geo-divider">
+      <span class="geo-circle" style="background: var(--color-geo-blue);"></span>
+      <span class="geo-circle" style="background: var(--color-geo-coral);"></span>
+    </div>
+    <p class="eyebrow fade-in">installation</p>
+    <h2 class="fade-in-up delay-1" style="margin-bottom: 2.5rem;">Install on macOS.</h2>
+
+    <div class="step fade-in-up delay-2">
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <p><strong>Download and unzip the app.</strong> You'll get it from the beta post on Patreon. Unzip it somewhere it can live long term, your Documents folder works well, not Downloads, since you won't want to delete it later.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-3">
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <p><strong>Open Terminal.</strong> Press <code>Cmd + Space</code>, type "Terminal," press Enter.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-4">
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <p>Type <code>cd </code> (with a space after it), then drag the unzipped elly folder into the Terminal window. It fills in the path for you. Press Enter.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-5">
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <p>Run the installer:</p>
+        <pre class="code-block"><code>./install-macos.sh</code></pre>
+        <p>It installs its own tools, builds the dashboard the first time (a minute or two), and sets things up to start automatically whenever you log in. No admin password needed.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-6">
+      <span class="step-number">5</span>
+      <div class="step-content">
+        <p>When it finishes, it prints a one time access token and opens your browser automatically. Paste that token in when the dashboard asks. You're set up.</p>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in-up delay-7">
+      <p><strong>Something look scary in the terminal?</strong> If it mentions "Rust" or "OpenSSL," the installer already tries to fix that automatically on most machines. If it still stops, it tells you exactly what to type next, just follow those lines.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Windows install -->
+  <!-- ============================================================ -->
+  <section id="windows" class="page-container section-spacer" data-orb="4" style="padding-top: 0;">
+    <div class="geo-divider">
+      <span class="geo-circle" style="background: var(--color-geo-teal);"></span>
+      <span class="geo-circle" style="background: var(--color-geo-amber);"></span>
+    </div>
+    <p class="eyebrow fade-in">installation</p>
+    <h2 class="fade-in-up delay-1" style="margin-bottom: 2.5rem;">Install on Windows.</h2>
+
+    <div class="step fade-in-up delay-2">
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <p><strong>Download and unzip the app</strong> from the beta post on Patreon, somewhere it can live long term.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-3">
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <p>Open the unzipped elly folder in File Explorer.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-4">
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <p>Double click <code>install-windows.cmd</code>. A window pops up and does its thing. No admin rights needed, no PowerShell commands to type yourself.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-5">
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <p>When it finishes, it prints a one time access token and opens your browser automatically. Paste that token in when the dashboard asks. You're set up.</p>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in-up delay-6">
+      <p><strong>Windows says "Windows protected your PC"?</strong> That's the normal warning for any unsigned script, not a sign something's wrong. Click "More info," then "Run anyway."</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Linux install -->
+  <!-- ============================================================ -->
+  <section id="linux" class="page-container section-spacer" data-orb="5" style="padding-top: 0;">
+    <div class="geo-divider">
+      <span class="geo-circle" style="background: var(--color-geo-coral);"></span>
+      <span class="geo-circle" style="background: var(--color-geo-blue);"></span>
+    </div>
+    <p class="eyebrow fade-in">installation</p>
+    <h2 class="fade-in-up delay-1" style="margin-bottom: 2.5rem;">Install on Linux.</h2>
+
+    <div class="step fade-in-up delay-2">
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <p><strong>Download and unzip the app</strong> from the beta post on Patreon, somewhere it can live long term.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-3">
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <p>Open a terminal in the unzipped elly folder.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-4">
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <p>Run the installer:</p>
+        <pre class="code-block"><code>./install-linux.sh</code></pre>
+        <p>It installs its own tools, builds the dashboard the first time, and sets up a user level service so elly starts automatically. No root or sudo needed. Works great on a Raspberry Pi too, including headless over SSH.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-5">
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <p>When it finishes, it prints a one time access token. If you're on a desktop with a browser it opens automatically, if you're headless it tells you the address to open yourself. Paste that token in when the dashboard asks.</p>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in-up delay-6">
+      <p><strong>Needs <code>systemctl --user</code> to work</strong>, true on virtually every mainstream distro. If yours doesn't use systemd, <code>docker compose up</code> works identically everywhere instead.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- OpenAI key -->
+  <!-- ============================================================ -->
+  <section id="openai" class="page-container section-spacer" data-orb="6" style="padding-top: 0;">
+    <div class="geo-divider">
+      <span class="geo-circle" style="background: var(--color-geo-amber);"></span>
+      <span class="geo-circle" style="background: var(--color-geo-teal);"></span>
+    </div>
+    <p class="eyebrow fade-in">ai assistant</p>
+    <h2 class="fade-in-up delay-1" style="margin-bottom: 0.75rem;">Add an OpenAI key.</h2>
+    <p class="body-large fade-in-up delay-2" style="max-width: 600px; margin-bottom: 2.5rem;">This is the fast, cloud based option for the AI assistant. Costs a few cents per conversation, not a subscription. Prefer everything to stay fully on your own machine instead? Skip to <a href="#ollama">setting up Ollama</a>.</p>
+
+    <div class="step fade-in-up delay-3">
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <p>Go to <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">platform.openai.com/api-keys</a> and sign up, or log in if you already have an account.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-4">
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <p><strong>Add a payment method.</strong> A brand new OpenAI account with no billing set up will fail on its very first request, this is the single most common hiccup people hit, and it's on OpenAI's side, not elly's. A few dollars of credit covers a very long time of normal use.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-5">
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <p>Click "Create new secret key," give it any name you like, and copy the key it shows you. It starts with <code>sk-</code>. You won't be able to see it again after you leave the page, so copy it now.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-6">
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <p>In elly, open <strong>Settings</strong>, find the OpenAI key field, paste it in, and save. That's it, the AI assistant is ready.</p>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in-up delay-7">
+      <p><strong>Already pasted a key and getting an odd "rate limiting" style error?</strong> It usually means the account behind that key still needs billing added, not a real problem with elly or the key itself. Check the billing page on platform.openai.com.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Telegram -->
+  <!-- ============================================================ -->
+  <section id="telegram" class="page-container section-spacer" data-orb="2" style="padding-top: 0;">
+    <div class="geo-divider">
+      <span class="geo-circle" style="background: var(--color-geo-teal);"></span>
+      <span class="geo-circle" style="background: var(--color-geo-coral);"></span>
+    </div>
+    <p class="eyebrow fade-in">remote access</p>
+    <h2 class="fade-in-up delay-1" style="margin-bottom: 0.75rem;">Connect Telegram.</h2>
+    <p class="body-large fade-in-up delay-2" style="max-width: 600px; margin-bottom: 2.5rem;">Optional, and takes about two minutes. Once it's paired, you can log a habit or brain dump a task from your phone, even while your computer is asleep.</p>
+
+    <div class="step fade-in-up delay-3">
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <p><strong>Create your own bot.</strong> Open Telegram and message <a href="https://t.me/BotFather" target="_blank" rel="noopener noreferrer">@BotFather</a> (Telegram's official bot for making bots). Send it <code>/newbot</code> and follow the two prompts: a display name, then a username that has to end in "bot."</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-4">
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <p>BotFather replies with a token, a long string of letters and numbers. Copy it.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-5">
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <p>In elly's <strong>Settings</strong> tab, find the Telegram section, paste the token in, and save. It'll ask you to restart elly for the change to take effect, a button right there does it for you.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-6">
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <p>Back in Settings, click <strong>"Connect Telegram"</strong> (or similar). It shows you a one time six digit pairing code.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-7">
+      <span class="step-number">5</span>
+      <div class="step-content">
+        <p>Message your own bot on Telegram (find it by the username you picked) and send <code>/start</code> followed by that code, for example <code>/start 482913</code>. That's the activation, you're paired.</p>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in-up delay-8">
+      <p><strong>Your bot, your rules.</strong> Only the Telegram account that used the pairing code can ever talk to it. There's no way for anyone else to message their way in, even if they somehow found your bot's username.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- Ollama -->
+  <!-- ============================================================ -->
+  <section id="ollama" class="page-container section-spacer" data-orb="1" style="padding-top: 0; padding-bottom: clamp(6rem, 12vh, 9rem);">
+    <div class="geo-divider">
+      <span class="geo-circle" style="background: var(--color-geo-blue);"></span>
+      <span class="geo-circle" style="background: var(--color-geo-amber);"></span>
+    </div>
+    <p class="eyebrow fade-in">ai assistant</p>
+    <h2 class="fade-in-up delay-1" style="margin-bottom: 0.75rem;">Set up Ollama.</h2>
+    <p class="body-large fade-in-up delay-2" style="max-width: 600px; margin-bottom: 2.5rem;">The fully private option. Zero data ever leaves your machine, no API key, no per message cost. In exchange, it needs a reasonably capable computer and responses are slower than the cloud option.</p>
+
+    <div class="step fade-in-up delay-3">
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <p>Download and install <a href="https://ollama.com" target="_blank" rel="noopener noreferrer">Ollama</a> for your operating system. It runs quietly in the background once installed.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-4">
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <p>Open a terminal (or Command Prompt on Windows) and pull a model:</p>
+        <pre class="code-block"><code>ollama pull qwen2.5:3b</code></pre>
+        <p>We'd recommend starting with this smaller model specifically. In our own testing, it was noticeably faster and more reliable at actually using elly's tools than the larger default, especially on a laptop rather than a heavy desktop. If you've got a lot of RAM to spare and want to try a bigger model later, you can.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-5">
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <p>In elly's <strong>Settings</strong> tab, switch the AI provider to <strong>Local (Ollama)</strong>. Enter <code>qwen2.5:3b</code> (or whichever model you pulled) as the model name, leave the URL field blank unless Ollama is running somewhere other than this same machine.</p>
+      </div>
+    </div>
+    <div class="step fade-in-up delay-6">
+      <span class="step-number">4</span>
+      <div class="step-content">
+        <p>Click <strong>"Test connection"</strong> to confirm elly can actually reach Ollama, then save. You can switch back to OpenAI any time, no reinstall needed either way.</p>
+      </div>
+    </div>
+
+    <div class="tip-box fade-in-up delay-7">
+      <p><strong>Responses feel slow, or the assistant seems to ignore what you asked?</strong> That's a real tradeoff of running locally on modest hardware, not a bug. A smaller, well matched model (like the one above) genuinely performs better than a bigger one your machine has to strain to run.</p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

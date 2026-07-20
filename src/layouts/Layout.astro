@@ -346,6 +346,66 @@ a:hover { opacity: 0.8; }
 .btn-ghost:hover { border-color: var(--color-ink); }
 .btn-ghost:active { transform: scale(0.98); }
 
+/* Tutorials page: small, reusable pieces for step-by-step content --
+   kept here alongside the other shared classes (.btn-primary,
+   .eyebrow, etc.) rather than repeated inline on every step, since a
+   content-heavy page like this would otherwise mean the same handful
+   of style attributes typed out dozens of times. */
+.tutorial-nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.125rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.tutorial-nav-link:hover { border-color: var(--color-geo-blue); color: var(--color-geo-blue); opacity: 1; }
+
+.code-block {
+  background: var(--color-bg-warm);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+  color: var(--color-ink);
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.tip-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-geo-amber);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.tip-box p { font-size: 0.9375rem; color: var(--color-ink-secondary); margin: 0; }
+
+.step { display: flex; gap: 1rem; margin-bottom: 1.75rem; }
+.step-number {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-geo-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+.step-content { flex: 1; padding-top: 0.125rem; }
+.step-content p { margin-bottom: 0.5rem; }
+
 .geo-circle {
   width: 12px;
   height: 12px;

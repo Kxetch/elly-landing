@@ -12,6 +12,12 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
     <meta name="description" content={description || "Self-hosted AI notebook. Notes, diary, calendar, habits, tasks. Local-first. Your data, yours."} />
+    <!-- Explicit, rather than relying on the browser's implicit /favicon.ico
+         auto-discovery -- that's exactly how the previous, unreferenced
+         public/favicon.svg sat unused while public/favicon.ico (Astro's
+         default starter icon) kept showing in the tab instead. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />

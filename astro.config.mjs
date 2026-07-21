@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://kxnotes.com',
+  site: 'https://elly.ink',
 
   vite: {
     plugins: [tailwindcss()],

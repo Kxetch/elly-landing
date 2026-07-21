@@ -180,6 +180,15 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Defensive, not the primary fix -- the decorative background orbs
+     (.orb-field below) and a couple of fixed-position widgets
+     (#theme-toggle, ChatWidget.astro's #chat-widget) can end up a
+     handful of pixels past the viewport edge on narrow phones by
+     design/rounding, which would otherwise let the whole page
+     rubber-band/scroll sideways. Real content overflowing horizontally
+     is still a bug to fix at the source (see the .grid-* classes
+     below), not something to paper over with this alone. */
+  overflow-x: hidden;
 }
 
 body {
@@ -190,6 +199,7 @@ body {
   font-size: 16px;
   letter-spacing: -0.01em;
   min-height: 100vh;
+  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -290,6 +300,46 @@ a:hover { opacity: 0.8; }
 
 .section-spacer { padding: clamp(5rem, 12vw, 10rem) 0; }
 .section-narrow { max-width: 640px; margin: 0 auto; }
+
+/* Shared responsive multi-column grids -- every section on this page
+   used to set `grid-template-columns` inline with a fixed ratio
+   (1fr 2fr, 2fr 1fr, 1fr 1fr, repeat(3/4, 1fr)) and no way to collapse
+   on a phone. Below ~768px that left a heading sitting alone in a
+   narrow column next to a huge blank gap for the entire height of
+   whatever was in the other column (worst case: the "Everything you
+   need" features section, 2fr of feature text next to 1fr of empty
+   space the full ~3000px height of the list) -- and, since CSS Grid's
+   default track sizing still respects each column's own min-content
+   width even inside a `1fr` track, a couple of these (TechCred's
+   `code`-styled snippets especially) were forcing the whole page wider
+   than the viewport, a real horizontal-scroll bug, not just a layout
+   one. `gap` stays wherever each component's own inline style set it
+   (values differ per section) -- only grid-template-columns moves here. */
+.grid-1-2, .grid-2-1, .grid-1-1, .grid-3, .grid-4 { display: grid; }
+.grid-1-2 { grid-template-columns: 1fr 2fr; }
+.grid-2-1 { grid-template-columns: 2fr 1fr; }
+.grid-1-1 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 767px) {
+  .grid-1-2, .grid-2-1, .grid-1-1, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Screenshots.astro: an odd-numbered gallery (7 items in a 2-column
+   grid) means the last one sits alone on its own row -- this makes it
+   render at a deliberate half-width instead of stretching to fill the
+   full row width, matching the size of every other screenshot above
+   it. Once the grid above collapses to one column on mobile, there's
+   only one column's worth of width to begin with, so the half-width
+   constraint has to go too, or this one screenshot would render at
+   half the size of every other screenshot on the page for no reason. */
+.grid-span-half { grid-column: 1 / -1; max-width: calc(50% - clamp(1rem, 2vw, 1.5rem)); }
+@media (max-width: 767px) {
+  .grid-span-half { max-width: 100%; }
+}
 
 .eyebrow {
   font-size: 0.75rem;

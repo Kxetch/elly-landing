@@ -33,7 +33,7 @@ const quotes = [
     Used by people who build things.
   </h2>
 
-  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(2rem, 4vw, 3rem); margin-bottom: clamp(4rem, 8vw, 6rem);">
+  <div class="grid-4" style="gap: clamp(2rem, 4vw, 3rem); margin-bottom: clamp(4rem, 8vw, 6rem);">
     {stats.map((s, i) => (
       <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`}>
         <p style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.25rem;">{s.value}</p>
@@ -44,7 +44,7 @@ const quotes = [
 
   <div class="divider" style="margin-bottom: clamp(3rem, 6vw, 5rem);"></div>
 
-  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 3rem);">
+  <div class="grid-3" style="gap: clamp(2rem, 4vw, 3rem);">
     {quotes.map((q, i) => (
       <div class={`fade-in-up delay-${Math.min(i + 2, 8)}`}>
         <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">"{q.text}"</p>

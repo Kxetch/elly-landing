@@ -72,9 +72,9 @@ const { title, description } = Astro.props;
       });
 
       if (sections.length && orbs.length && "IntersectionObserver" in window) {
-        const setVisible = (ids, visible) => {
-          ids.forEach((id) => {
-            (orbsById.get(id) || []).forEach((orb) => {
+        const setVisible = (ids: string[], visible: boolean) => {
+          ids.forEach((id: string) => {
+            (orbsById.get(id) || []).forEach((orb: Element) => {
               orb.classList.toggle("is-visible", visible);
             });
           });

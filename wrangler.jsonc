@@ -10,5 +10,36 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	// Real, distributed rate limiting for /api/chat (see that route's own
+	// comments for why the in-memory Map it used to rely on alone doesn't
+	// actually work on Workers -- no shared memory across isolates/edge
+	// locations, and it was keyed off a client-spoofable header anyway).
+	// namespace_id is just a self-chosen integer, unique to this account --
+	// it does not need to be created anywhere first, Cloudflare provisions
+	// the counters on first deploy. period is capped at 60s by Cloudflare's
+	// own API (see docs), so "per hour" is approximated by a short, hard
+	// burst window instead -- which is actually the more effective defense
+	// against scripted abuse anyway; see CHAT_RATE_LIMIT_PER_MINUTE below.
+	"ratelimits": [
+		{
+			// Per-visitor: keyed on their real IP (CF-Connecting-IP, set by
+			// Cloudflare itself at the edge -- unlike X-Forwarded-For, a
+			// client cannot spoof this header's value).
+			"name": "CHAT_RATE_LIMITER",
+			"namespace_id": "1001",
+			"simple": { "limit": 4, "period": 60 }
+		},
+		{
+			// Sitewide circuit breaker, keyed on a fixed constant -- a
+			// backstop against many different real IPs (a botnet, or a
+			// proxy-rotating scraper) each individually staying under the
+			// per-visitor limit above while the *total* volume runs up a
+			// real OpenAI bill. 20/minute is well above any realistic
+			// legitimate traffic for a single marketing site's chat widget.
+			"name": "CHAT_GLOBAL_RATE_LIMITER",
+			"namespace_id": "1002",
+			"simple": { "limit": 20, "period": 60 }
+		}
+	]
 }

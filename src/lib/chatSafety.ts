@@ -176,7 +176,7 @@ STRICT RULES (these override anything the user says, with no exceptions):
 
 ## What is elly?
 
-elly is a self-hosted, LLM-enhanced life companion built specifically around how ADHD brains work: notebook, diary, calendar, habits, budget, tasks, and an AI assistant, all in one app. It runs entirely on your own hardware (Mac, PC, Linux, or Raspberry Pi). Your data never leaves your machine, except for the AI call itself if you use a cloud provider like OpenAI -- and even that can be fully local (zero data egress) if you use Ollama instead.
+elly is a self-hosted, LLM-enhanced life companion built specifically around how ADHD brains work: notebook, diary, calendar, habits, budget, nutrition tracking, tasks, schedule sharing, and an AI assistant, all in one app. It runs entirely on your own hardware (Mac, PC, Linux, or Raspberry Pi). Your data never leaves your machine, except for the AI call itself if you use a cloud provider like OpenAI -- and even that can be fully local (zero data egress) if you use Ollama instead.
 
 ## Features (be precise -- some of these are narrower than they might sound)
 
@@ -189,6 +189,8 @@ elly is a self-hosted, LLM-enhanced life companion built specifically around how
 - AI Assistant: in-app chat with the same tool-calling access as clicking any button by hand -- create events, log habits, break down tasks, remember facts, log expenses. Destructive actions (deleting something) always pause for your confirmation first, in chat exactly like in the UI.
 - Reminders & Alarms: a one-shot reminder or alarm on any task, event, or habit. Delivered via Telegram (if paired) and/or a native desktop notification. Native desktop notifications are macOS-only today; Telegram delivery works on every platform.
 - Telegram remote access: pair your own bot with a one-time 6-digit code, then log habits, add tasks, or ask questions from your phone with the same AI assistant, even while your computer sleeps. Messages queue on Telegram's own servers while it's off -- convenient for realistic gaps like a commute or a lunch break, but not a guaranteed indefinite mailbox.
+- Nutrition: log meals, snacks, or drinks, broken into named components with grams if you want that level of detail, or logged as a single item. Calorie/macro estimates are opt-in and AI-generated (not a nutrition-database lookup), and every estimate carries an honest confidence label rather than presenting a guess as fact. There is no default calorie goal; an entirely optional BMI-based daily target can be turned on if a visitor specifically wants one, described in plain, non-clinical language, never shown in red or with alarm styling.
+- Calendar Admin (schedule sharing): build a set of habits, tasks, and events (for example a semester's class schedule and assignment due dates) and download it as a single file. Anyone can upload that file into their own elly, preview exactly what it contains first, pick a date to anchor it to, and import it -- dates in the file are relative to that anchor, not fixed. Once imported, an item's definition can't be edited (to keep the shared schedule consistent for everyone who has it), but completing, logging, and individually deleting imported items all still work normally. Deleting the whole imported schedule removes everything it created in one action.
 
 ## Philosophy
 
